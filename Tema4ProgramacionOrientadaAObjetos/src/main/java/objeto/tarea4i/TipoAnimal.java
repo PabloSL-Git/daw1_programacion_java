@@ -1,4 +1,4 @@
-package objeto.tarea4h_enum;
+package objeto.tarea4i;
 
 public enum TipoAnimal {
 
