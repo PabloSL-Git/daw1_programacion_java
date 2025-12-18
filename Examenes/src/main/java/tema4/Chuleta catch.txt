@@ -1,0 +1,141 @@
+   
+    ESTRUCTURA BÁSICA
+La estructura básica de un try-catch es la siguiente:
+
+try {
+// Código que puede producir un error
+} catch (TipoDeExcepcion e) {
+// Código que maneja el error
+}
+
+
+FLUJO DE EJECUCIÓN
+El funcionamiento de try-catch sigue estos pasos:
+
+Se ejecuta el código dentro del bloque try.
+
+Si no ocurre ningún error, el catch se ignora.
+
+Si ocurre una excepción:
+
+El try se interrumpe.
+
+Java busca un catch compatible.
+
+Se ejecuta ese catch.
+
+EJEMPLO SIMPLE
+Ejemplo de una excepción al dividir entre cero:
+
+try {
+int resultado = 10 / 0;
+} catch (ArithmeticException e) {
+System.out.println("No se puede dividir entre cero");
+}
+
+Salida:
+No se puede dividir entre cero
+
+¿QUÉ SIGNIFICA "Exception e"?
+
+Exception es la clase del error.
+
+e es el objeto que contiene información sobre la excepción.
+
+Ejemplo:
+catch (ArithmeticException e) {
+System.out.println(e.getMessage());
+}
+
+
+
+
+USO DE MÚLTIPLES CATCH
+Se pueden manejar diferentes tipos de excepciones en un mismo try.
+
+try {
+int[] numeros = {1, 2, 3};
+System.out.println(numeros[5]);
+} catch (ArrayIndexOutOfBoundsException e) {
+System.out.println("Índice fuera de rango");
+} catch (Exception e) {
+System.out.println("Error general");
+}
+
+Regla importante:
+Los catch más específicos deben ir antes que los generales.
+
+CATCH MÚLTIPLE (JAVA 7 O SUPERIOR)
+Java permite capturar varias excepciones en un solo catch.
+
+try {
+// código
+} catch (ArithmeticException | NullPointerException e) {
+System.out.println("Error de cálculo o valor null");
+}
+
+
+
+
+BLOQUE FINALLY
+El bloque finally siempre se ejecuta, ocurra o no una excepción.
+
+try {
+int x = 5 / 1;
+} catch (Exception e) {
+System.out.println("Error");
+} finally {
+System.out.println("Fin del programa");
+}
+
+El bloque finally se usa para:
+
+Cerrar archivos
+
+Cerrar conexiones
+
+Liberar recursos
+
+
+
+
+
+DIFERENCIA ENTRE THROW Y THROWS
+
+throw:
+Se utiliza para lanzar una excepción manualmente.
+
+throw new IllegalArgumentException("Dato inválido");
+
+throws:
+Se utiliza en la firma del método para indicar que puede lanzar una excepción.
+
+public void leerArchivo() throws IOException {
+// código
+}
+
+
+
+BUENAS PRÁCTICAS
+
+Capturar excepciones específicas
+
+Mostrar mensajes claros
+
+No dejar bloques catch vacíos
+
+Evitar usar Exception genérico sin motivo
+
+Ejemplo de mala práctica:
+catch (Exception e) {
+}
+
+
+
+
+RESUMEN RÁPIDO
+try → Código que puede fallar
+catch → Manejo del error
+finally → Siempre se ejecuta
+throw → Lanza una excepción
+throws → Declara una excepción

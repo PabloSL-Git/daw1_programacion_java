@@ -1,0 +1,117 @@
+
+DECLARACIÓN DE UN ARRAY
+Existen varias formas de declarar un array en Java.
+
+Declaración sin inicializar:
+int[] numeros;
+
+Declaración e inicialización:
+int[] numeros = {1, 2, 3, 4, 5};
+
+Declaración con tamaño fijo:
+int[] numeros = new int[5];
+
+
+
+
+ACCESO A LOS ELEMENTOS
+Se accede a un elemento del array usando su índice.
+
+int[] numeros = {10, 20, 30};
+
+System.out.println(numeros[0]); // 10
+System.out.println(numeros[1]); // 20
+System.out.println(numeros[2]); // 30
+
+
+
+
+MODIFICAR ELEMENTOS DEL ARRAY
+Se puede cambiar el valor de un elemento usando su índice.
+
+int[] numeros = {10, 20, 30};
+numeros[1] = 50;
+
+
+
+
+TAMAÑO DEL ARRAY
+El tamaño de un array se obtiene con la propiedad length.
+
+int[] numeros = {1, 2, 3, 4};
+System.out.println(numeros.length); // 4
+
+
+
+
+
+RECORRER UN ARRAY CON FOR
+El bucle for tradicional permite recorrer el array usando índices.
+
+int[] numeros = {1, 2, 3, 4};
+
+for (int i = 0; i < numeros.length; i++) {
+System.out.println(numeros[i]);
+}
+
+
+
+
+SINTAXIS DEL FOR-EACH
+La sintaxis del for-each es la siguiente:
+
+for (tipo variable : array) {
+// código
+}
+
+Ejemplo:
+int[] numeros = {1, 2, 3, 4};
+
+for (int n : numeros) {
+System.out.println(n);
+}
+
+
+
+
+ARRAYS DE STRINGS
+Los arrays también pueden almacenar textos.
+
+String[] nombres = {"Ana", "Luis", "Carlos"};
+
+for (String nombre : nombres) {
+System.out.println(nombre);
+}
+
+
+
+
+
+ERRORES COMUNES
+Acceder a un índice fuera del array provoca un error.
+
+int[] numeros = {1, 2, 3};
+System.out.println(numeros[5]); // Error
+
+Error:
+ArrayIndexOutOfBoundsException
+
+BUENAS PRÁCTICAS
+
+Usar length para recorrer arrays
+
+Evitar índices fuera de rango
+
+Usar for-each cuando no necesites el índice
+
+Mantener el código simple y claro
+
+
+
+
+RESUMEN RÁPIDO
+Array → Colección de elementos del mismo tipo
+Índice → Posición del elemento (empieza en 0)
+length → Tamaño del array
+for → Recorrido con índice
+for-each → Recorrido simple sin índice
