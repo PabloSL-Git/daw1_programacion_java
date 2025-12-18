@@ -139,7 +139,7 @@ public class AnimalEnum {
         if (cantidadMinutos < 30) {
             this.pesoAnimal = pesoAnimal * 0.9;
 
-        } else if (cantidadMinutos > 30) {
+        } else if (cantidadMinutos >= 30) {
             this.pesoAnimal = pesoAnimal * 0.8;
         }
     }

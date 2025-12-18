@@ -30,7 +30,7 @@ public class Prueba {
         colega.alimentar(pet, 1000);
         System.out.println("Peso despues de comer 1Kg: " + pet.getPesoAnimal());
 
-        colega2.jugar(pet, 200);
+        colega2.jugar(pet, 100);
         System.out.println("Peso despues de jugar 200 minutos: " + pet2.getPesoAnimal());
 
         // Animal pet3 = new Animal("Tester", LocalDate.of(1999, 5, 20), "perro", 5000, "durmiendo");

@@ -20,6 +20,15 @@ public class Animal {
         this.estadoAnimal = "reposando";
     }
 
+    // ARRAYS con valores permitidos
+    private static final String[] TIPOS_ANIMAL = {
+            "gato", "perro", "lagarto", "cobaya", "periquito"
+    };
+
+    private static final String[] ESTADOS_ANIMAL = {
+            "comiendo", "durmiendo", "reposando", "jugando"
+    };
+
     // Constructor parametrizado
 
     public Animal(String nombreAnimal, LocalDate fechaNacimientoAnimal, String tipoAnimal, double pesoAnimal,
@@ -33,25 +42,30 @@ public class Animal {
         if (pesoAnimal < 0 || pesoAnimal > 100000) { // gramos
             throw new IllegalArgumentException("El peso debe estar entre 0 y 100000 gramos");
         }
-        if (!(tipoAnimal.equalsIgnoreCase("gato") || tipoAnimal.equalsIgnoreCase("perro")
-                || tipoAnimal.equalsIgnoreCase("lagarto")
-                || tipoAnimal.equalsIgnoreCase("cobaya") || tipoAnimal.equalsIgnoreCase("periquito"))) {
+        if (!esValido(tipoAnimal, TIPOS_ANIMAL)) {
             throw new IllegalArgumentException(
                     "Animal debe ser uno de los siguientes: gato, perro, lagarto, cobaya, periquito");
         }
-        if (!(estadoAnimal.equalsIgnoreCase("comiendo") || estadoAnimal.equalsIgnoreCase("durmiendo")
-                || estadoAnimal.equalsIgnoreCase("reposando")
-                || estadoAnimal.equalsIgnoreCase("jugando"))) {
+        if (!esValido(estadoAnimal, ESTADOS_ANIMAL)) {
             throw new IllegalArgumentException(
                     "Animal solo puede estar comiendo, durmiendo, reposando o jugando");
         }
 
         this.fechaNacimientoAnimal = fechaNacimientoAnimal;
-        this.fechaNacimientoAnimal = fechaNacimientoAnimal;
         this.tipoAnimal = tipoAnimal;
         this.pesoAnimal = pesoAnimal;
         this.nombreAnimal = nombreAnimal;
-        this.estadoAnimal = "reposando"; // estado inicial
+        this.estadoAnimal = estadoAnimal;
+    }
+
+    // Método para validar usando arrays
+    private boolean esValido(String valor, String[] lista) {
+        for (String v : lista) {
+            if (v.equalsIgnoreCase(valor)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Constructor copia
@@ -145,14 +159,15 @@ public class Animal {
 
         cantidadMinutos = Math.abs(cantidadMinutos);
 
+        if (cantidadMinutos > 180) {
+            throw new IllegalArgumentException("Animal no puede jugar mas de 180 minutos");
+        }
+
         if (cantidadMinutos < 30) {
             this.pesoAnimal = pesoAnimal * 0.9;
 
-        } else if (cantidadMinutos > 30) {
+        } else if (cantidadMinutos >= 30) {
             this.pesoAnimal = pesoAnimal * 0.8;
-
-        } else if (cantidadMinutos > 180) {
-            throw new IllegalArgumentException("Animal no puede jugar mas de 180 minutos");
         }
     }
 
